@@ -4,7 +4,7 @@
 package com.me.cavery.dungeon;
 
 /**
- * @author Toni
+ * @author Sparky
  *
  */
 public class Dungeon {	
@@ -24,6 +24,12 @@ public class Dungeon {
 	public int LEVEL_HEIGHT_GRAYSCALE_2 = 120;
 	public int LEVEL_HEIGHT_GRAYSCALE_1 = 110;
 	public int LEVEL_HEIGHT_GRAYSCALE_0 = 100;
+	
+	
+	public void loadFromImage(String map){
+		
+	}
+	
 
 
 

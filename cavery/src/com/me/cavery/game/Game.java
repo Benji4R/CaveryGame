@@ -5,8 +5,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.GL11;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.me.cavery.development.GameConsole;
+import com.me.cavery.dungeon.Dungeon;
 import com.me.cavery.enums.GameState;
 import com.me.cavery.logger.GameLogger;
+import com.me.cavery.manager.GameInputManager;
+import com.me.cavery.screens.GameScreen;
 
 /**
  * 
@@ -30,8 +35,14 @@ public class Game {
 	private boolean isGL11Available;
 	private boolean isGL20Available;
 	
+	private GameConsole gconsole;
 	
+	private GameScreen gamescreen;
 	
+	private GameInputManager gameinput;
+	private PerspectiveCamera perscam;
+	
+	private Dungeon[] dungeons;
 
 	//-----------------------------------------------------------------------------
 	//	Konstruktor(en)
@@ -51,6 +62,8 @@ public class Game {
 		isGL20Available = Gdx.graphics.isGL20Available();
 		logger.instance.writeLine("GL11 AVAILABLE: "+isGL11Available);
 		logger.instance.writeLine("GL20 AVAILABLE: "+isGL20Available);
+		
+		perscam = new PerspectiveCamera(60.0f, windowWidth, windowHeight);
 
 	}
 
@@ -64,12 +77,20 @@ public class Game {
 	public void initialize(float winWidth,float winHeight) {
 		this.windowWidth = winWidth;
 		this.windowHeight = winHeight;
+		
+		gconsole = new GameConsole(winWidth, winHeight);
+		gameinput = new GameInputManager();
+		
+		gamescreen = new GameScreen(gameinput);
+		
+		Gdx.input.setInputProcessor(gameinput);
 	}
 
 	/**
 	 * Aktualisiert das Spiel bzw. den Lifecycle.
 	 * */
 	public void update() {
+		
 
 	}
 

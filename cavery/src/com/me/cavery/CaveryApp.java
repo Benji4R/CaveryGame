@@ -22,8 +22,6 @@ public class CaveryApp implements ApplicationListener {
 
 		game = new Game();
 		game.initialize(w,h);
-
-
 	}
 
 	@Override
